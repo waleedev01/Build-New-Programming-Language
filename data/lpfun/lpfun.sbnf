@@ -1,0 +1,25 @@
+-- Grammar rules for LPfun
+Prog         -> BEGIN Stm* END FUNC Stm* RCBR
+
+Stm          -> IF LBR Exp RBR Stm ELSE Stm ENDIF
+Stm          -> PRINTINT Exp SEMIC
+Stm          -> PRINTCHAR Exp SEMIC
+Stm          -> ID LBR Exp RBR SEMIC
+Stm          -> WHILE LBR Exp RBR DO Stm DONE
+Stm          -> FUNC ID LBR Exp RBR LCBR Stm RCBR
+Stm          -> RETURN Exp SEMIC
+
+Exp          -> INT Opt
+Exp          -> ID Opt
+Exp          -> LBR Exp RBR Opt
+
+Opt          -> PLUS Exp
+Opt          -> MINUS Exp
+Opt          -> TIMES Exp
+Opt          -> LESS Exp
+Opt          -> DIV Exp
+Opt          -> LESSOREQUAL Exp
+Opt          -> MOREOREQUAL Exp
+Opt          -> EQUALS Exp
+Opt          ->
+

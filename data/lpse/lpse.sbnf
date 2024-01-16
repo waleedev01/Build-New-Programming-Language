@@ -1,0 +1,22 @@
+-- Grammar for a tiny typed language.
+Prog         -> BEGIN Stm* END
+
+Stm          -> IF LBR Exp RBR Stm ELSE Stm ENDIF
+Stm          -> PRINTINT Exp SEMIC
+Stm          -> PRINTCHAR Exp SEMIC
+Stm          -> ID ASSIGN Exp SEMIC
+Stm          -> WHILE LBR Exp RBR DO Stm DONE
+
+Exp          -> INT Opt
+Exp          -> ID Opt
+Exp          -> LBR Exp RBR Opt
+
+Opt          -> PLUS Exp
+Opt          -> MINUS Exp
+Opt          -> TIMES Exp
+Opt          -> LESS Exp
+Opt          -> DIV Exp
+Opt          -> LESSOREQUAL Exp
+Opt          -> MOREOREQUAL Exp
+Opt          -> EQUALS Exp
+Opt          ->
